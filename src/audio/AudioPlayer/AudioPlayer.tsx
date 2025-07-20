@@ -5,6 +5,7 @@ import { useSong } from '../../utils/hooks'
 import { IsRecordingContext } from '../../providers/IsRecording'
 import { RecordValuesContext } from '../../providers/RecordValues'
 import styles from './AudioPlayer.module.less'
+import type { MusicKeys } from '../../utils/types'
 // import { MAX_NOTE_LENGTH } from '../../utils/consts'
 
 // const audio = new Audio('assets/audio/envell-bard.ogg')
@@ -38,7 +39,7 @@ const AudioPlayer = ({ref}: {ref?: RefObject<HTMLDivElement>}) => {
     }
 
     const upCallback = (e: KeyboardEvent) => {
-        const {code} = e
+        const {code, shiftKey} = e
         let sharp = isSharp
 
         if(code == 'ControlLeft') {
@@ -49,18 +50,18 @@ const AudioPlayer = ({ref}: {ref?: RefObject<HTMLDivElement>}) => {
         if(usedOctave === -1) usedOctave = octave
         setRecordValues({...recordValues, isSharp: sharp, octave: usedOctave})
 
-        // const key: MusicKeys = shiftKey ? isSharp ? 1 : -1 : 0
+        const key: MusicKeys = shiftKey ? isSharp ? 1 : -1 : 0
         const note = SongUtils.getNoteFromKey(code)
         if(note == -1) return
 
-        // const number = SongUtils.getNumberNote(note, usedOctave, key)
+        const number = SongUtils.getNumberNote(note, usedOctave, key)
 
         if(isRecording) {
             const timeDiff = lastPressTime ? Math.ceil((Date.now() - lastPressTime) / 1000) : 0
 
             setSong({
                 ...song, 
-                notes: [...song.notes, note], 
+                notes: [...song.notes, number], 
                 duration: song.duration + timeDiff
             })
             setPressTime(0)
