@@ -1,0 +1,25 @@
+@import '@styles/utils/_sizes.less';
+@import '@styles/utils/_functional_colors.less';
+@import './default.module.less';
+
+.button {
+    .transtion-300ms();
+    @font-size: 18px;
+    
+    font-size: @font-size;
+    border: @button-active-color 3px solid;
+    padding: calc(@font-size / 2) 0;
+
+    background: @background;
+    color: @button-active-color;
+
+    &:hover {
+        border-color: @button-hover-color;
+        color: @button-hover-color;
+    }
+
+    @media (max-width: @tablet) {
+        grid-template-columns: 100%;
+        margin-top: 8px;
+    }
+}

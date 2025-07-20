@@ -1,0 +1,19 @@
+{
+  "duration": 52,
+  "name": "Спокойная ночь",
+  "notes": [
+    5,
+    9,
+    19,
+    17,
+    15,
+    12,
+    12,
+    14,
+    16,
+    12,
+    14,
+    19
+  ],
+  "script": "path/to/success/lua/script.lua"
+}

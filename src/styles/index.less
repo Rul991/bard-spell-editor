@@ -1,0 +1,53 @@
+@import "./_font-faces.less";
+@import "./utils/_functional_colors.less";
+@import "./utils/_sizes.less";
+
+* {
+    box-sizing: border-box;
+    font-family: "Pixy";
+
+    scrollbar-width: thin;
+    scrollbar-color: @active-color transparent;
+}
+
+body, html, #root {
+    border: 0;
+    padding: 0;
+    margin: 0;
+    background-color: @background;
+
+    height: 100vh;
+}
+
+#root {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    height: 100%!important;
+}
+
+main {
+    display: grid;
+    grid-template-columns: 60% 40%;
+    width: 100%;
+    height: 100%;
+
+    @media (max-width: @tablet) {
+        grid-template-columns: 100%;
+        row-gap: 1rem;
+    }
+
+    & > * {
+        height: calc(100vh - 5rem);
+    }
+}
+
+h2 {
+    color: @heading-color;
+    text-align: center;
+    margin: 0.25rem;
+    font-size: 2rem;
+
+    &::after {
+        content: ":";
+    }
+}

@@ -1,0 +1,16 @@
+@import '@styles/common/default.module.less';
+@import '@styles/utils/_functional_colors.less';
+@import '@styles/utils/_sizes.less';
+
+.panel {
+    @border: 3px solid @active-color;
+
+    padding: 0.5rem;
+    border-left: @border;
+    
+    @media (max-width: @tablet) {
+        grid-row: 1/1;
+        border-left: 0;
+        border-bottom: @border;
+    }
+}

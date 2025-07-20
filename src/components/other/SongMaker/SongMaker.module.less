@@ -1,0 +1,90 @@
+@import '@styles/utils/_functional_colors.less';
+@import '@styles/common/button.module.less';
+
+.piano {
+    @key-height: 18rem;
+    @key-width: 4.25rem;
+
+    display: grid;
+    grid-template-columns: repeat(72, auto);
+    
+    overflow-x: auto;
+    scrollbar-width: none;
+    
+    & > * {
+        transition: all 0.3s ease-in-out;
+        background-color: @input-background-color;
+        border: 1px solid #000;
+        font-size: 1.25rem;
+        padding: 0.5rem;
+        height: @key-height;
+        text-align: center;
+        align-content: flex-end!important;
+        user-select: none;
+
+        &:hover {
+            color: @main-color;
+        }
+    }
+
+    &-key {
+        display: grid;
+        align-content: flex-end!important;
+    }
+
+    &-black {
+        @margin: calc(@key-width / -2);
+
+        color: #fff;
+        background-color: #000;
+        height: calc(@key-height * 0.75);
+        z-index: 2;
+        width: @key-width;
+        margin-left: @margin;
+        margin-right: @margin;
+    }
+
+    &-white {
+        color: #000;
+        background-color: #fff;
+        z-index: 1;
+        width: calc(@key-width * 1.1);
+    }
+}
+
+.notes {
+    // scrollbar-width: none;
+    overflow-x: auto;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    
+    align-content: center;
+    gap: 1rem;
+    user-select: none;
+
+    & > * {
+        .button();
+        background-color: @input-background-color;
+        padding: 3rem;
+        align-self: center;
+        align-content: center;
+
+        &:focus {
+            border-width: 10px;
+        }
+    }
+}
+
+.note-pressed {
+    background-color: @active-color;
+    color: @background;
+
+    &:hover {
+        background: @dark-main-color;
+        border: @dark-main-color;
+        color: @background;
+        transform: none!important;
+    }
+}

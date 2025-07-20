@@ -1,0 +1,52 @@
+@import '@styles/utils/_functional_colors.less';
+@import '@styles/utils/_sizes.less';
+@import '@styles/common/default.module.less';
+@import '@styles/common/button.module.less';
+
+@nav-background: @active-color;
+
+.buttons(@columns) {
+    display: grid;
+    grid-template-columns: repeat(@columns, 1fr);
+
+    @gap: 24px;
+    @padding: calc(@gap / 2);
+
+    column-gap: @gap;
+    padding-left: @padding;
+    padding-right: @padding;
+
+    @media (max-width: @tablet) {
+        grid-template-columns: 100%;
+    }
+}
+
+.nav {
+    background-color: @nav-background;
+    color: @white;
+    
+    display: grid;
+    grid-template-columns: 2fr 3fr 3fr;
+    align-items: center;
+    width: 100%;
+
+    padding: 16px;
+
+    @media (max-width: @tablet) {
+        text-align: center;
+        grid-template-columns: 100%;
+    }
+
+    &-title {
+        font-size: 24px;
+        padding-left: 8px;
+    }
+
+    &-buttons {
+        .buttons(3)
+    }
+
+    &-buttons-2 {
+        .buttons(2)
+    }
+}
