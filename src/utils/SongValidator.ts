@@ -1,7 +1,8 @@
 import type Song from '../interfaces/JsonSong'
+import { MAX_OCTAVES, SEMITONES_IN_OCTAVE } from './consts'
 
 export default class SongValidator {
-    static songBounds = {min: 0, max: 71}
+    static songBounds = {min: 0, max: MAX_OCTAVES * SEMITONES_IN_OCTAVE - 1}
 
     static isNoteRight(note: number): boolean {
         if(typeof note != 'number') return false

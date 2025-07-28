@@ -1,4 +1,4 @@
-import { SEMITONES_IN_OCTAVE } from './consts'
+import { MAX_OCTAVES, SEMITONES_IN_OCTAVE } from './consts'
 import SongValidator from './SongValidator'
 import type { MusicKeys } from './types'
 
@@ -30,9 +30,9 @@ export default class SongUtils {
         const noteSymb = this._notes[numberOfNote]
 
         let octaveString: string
-        if(octave == 5)
+        if(octave == MAX_OCTAVES - 1)
             octaveString = 'Maj'
-        else if(octave == 6)
+        else if(octave == MAX_OCTAVES)
             octaveString = 'Min'
         else
             octaveString = octave.toString()
@@ -53,8 +53,8 @@ export default class SongUtils {
         return this._getValueFromKey({
             key,
             defaultValue: -1,
-            keys: this._getKeysFromString('HJKLBN'),
-            values: [0, 1, 2, 3, 4, 5]
+            keys: this._getKeysFromString('HJKLBNM'),
+            values: [0, 1, 2, 3, 4, 5, 6]
         })
     }
 

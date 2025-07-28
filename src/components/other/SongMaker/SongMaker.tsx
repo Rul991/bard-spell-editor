@@ -78,7 +78,7 @@ const SongMaker = () => {
                 }
             </div>
 
-            <div className={styles.piano}>
+            <div className={styles.piano} style={{gridTemplateColumns: `repeat(${SongValidator.songBounds.max + 1}, auto)`}}>
                 {
                     range.map((note, i) => {
                         const className = getNoteColor(note)

@@ -4,3 +4,4 @@ export const FILE_WAIT_TIME = 300_000 // 5 minutes
 export const SEMITONES_IN_OCTAVE = 12
 export const MAX_NOTE_LENGTH = 6000 //ms
 export const MAX_SYMBOLS = 40
+export const MAX_OCTAVES = 7
