@@ -1,9 +1,11 @@
-import SongMaker from '../../other/SongMaker'
+import Notes from '../../other/Notes'
+import Piano from '../../other/Piano'
 import styles from './MainPanel.module.less'
 
 const MainPanel = () => {
     return <div className={styles.panel}>
-        <SongMaker />
+        <Notes />
+        <Piano />
     </div>
 }
 

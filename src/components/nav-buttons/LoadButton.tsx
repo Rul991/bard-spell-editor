@@ -1,4 +1,4 @@
-import type Song from '../../interfaces/JsonSong'
+import type Song from '../../interfaces/Song'
 import FileUtils from '../../utils/FileUtils'
 import SongValidator from '../../utils/SongValidator'
 import ClickButton from '../buttons/ClickButton'

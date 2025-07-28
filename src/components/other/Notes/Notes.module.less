@@ -1,0 +1,39 @@
+@import '@styles/utils/_functional_colors.less';
+@import '@styles/common/button.module.less';
+
+.notes {
+    // scrollbar-width: none;
+    overflow-x: auto;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    
+    align-content: center;
+    gap: 1rem;
+    user-select: none;
+
+    & > * {
+        .button();
+        background-color: @input-background-color;
+        padding: 3rem;
+        align-self: center;
+        align-content: center;
+
+        &:focus {
+            border-width: 10px;
+        }
+    }
+}
+
+.note-pressed {
+    background-color: @active-color;
+    color: @background;
+
+    &:hover {
+        background: @dark-main-color;
+        border: @dark-main-color;
+        color: @background;
+        transform: none!important;
+    }
+}

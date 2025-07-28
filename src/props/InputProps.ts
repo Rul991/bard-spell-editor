@@ -1,4 +1,4 @@
-import type Song from '../interfaces/JsonSong'
+import type Song from '../interfaces/Song'
 
 export default interface InputProps {
     title: string

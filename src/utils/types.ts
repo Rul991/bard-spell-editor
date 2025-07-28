@@ -1,4 +1,4 @@
-import type Song from '../interfaces/JsonSong'
+import type Song from '../interfaces/Song'
 
 export type SongKeys = keyof Song
 export type SongValues = Song[SongKeys]

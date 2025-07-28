@@ -3,13 +3,13 @@ import Nav from '../components/other/Nav'
 import { SongProvider } from '../providers/Song'
 import MainPanel from '../components/panels/MainPanel'
 import SidePanel from '../components/panels/SidePanel'
-import { IsRecordingProvider } from '../providers/IsRecording'
+import { RecordingProvider } from '../providers/Recording'
 import { RecordValuesProvider } from '../providers/RecordValues'
 
 const App = () => {
     return (
         <SongProvider>
-            <IsRecordingProvider>
+            <RecordingProvider>
                 <RecordValuesProvider>
                     <Nav />
                     <main>
@@ -17,7 +17,7 @@ const App = () => {
                         <SidePanel />
                     </main>
                 </RecordValuesProvider>
-            </IsRecordingProvider>
+            </RecordingProvider>
         </SongProvider>
     )
 }

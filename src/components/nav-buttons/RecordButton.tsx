@@ -1,21 +1,20 @@
 import { useContext, useEffect, useRef } from 'react'
-import { IsRecordingContext } from '../../providers/IsRecording'
-import AudioPlayer from '../../audio/AudioPlayer'
+import { RecordingContext } from '../../providers/Recording'
+import AudioRecorder from '../../audio/AudioRecorder'
 import ClickButton from '../buttons/ClickButton'
 
 const RecordButton = () => {
-    const [_, setRecording] = useContext(IsRecordingContext)
+    const [recording, setRecording] = useContext(RecordingContext)
     const divRef = useRef<HTMLDivElement>(document.createElement('div'))
 
     useEffect(() => {
-        if(!divRef.current) return
-
         const blurListener = () => {
-            setRecording(false)
+            setRecording({...recording, isRecording: false})
         }
 
         const focusListener = () => {
-            setRecording(true)
+            if(!recording.isCanRecording) return
+            setRecording({...recording, isRecording: true})
         }
 
         divRef.current.addEventListener('blur', blurListener)
@@ -35,7 +34,7 @@ const RecordButton = () => {
 
     return (
         <>
-            <AudioPlayer ref={divRef} />
+            <AudioRecorder ref={divRef} />
             <ClickButton onClick={onRecord}>Начать запись</ClickButton>
         </>
     )

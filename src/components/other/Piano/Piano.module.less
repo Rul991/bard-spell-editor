@@ -1,0 +1,63 @@
+@import '@styles/utils/_functional_colors.less';
+@import '@styles/common/button.module.less';
+
+.piano {
+    @key-height: 18rem;
+    @black-key-height-coef: 0.75;
+    @small-key-height: 9rem;
+
+    @key-width: 4.25rem;
+
+    display: grid;
+    
+    overflow-x: auto;
+    scrollbar-width: none;
+    
+    & > * {
+        transition: all 0.3s ease-in-out;
+        background-color: @input-background-color;
+        border: 1px solid #000;
+        font-size: 1rem;
+        padding: 0.5rem;
+        height: @key-height;
+        text-align: center;
+        align-content: flex-end!important;
+        user-select: none;
+
+        @media (max-height: calc(@key-height * 2)) {
+            height: @small-key-height;
+        }
+
+        &:hover {
+            color: @main-color;
+        }
+    }
+
+    &-key {
+        display: grid;
+        align-content: flex-end!important;
+    }
+
+    &-black {
+        @margin: calc(@key-width / -2);
+
+        color: #fff;
+        background-color: #000;
+        height: calc(@key-height * @black-key-height-coef);
+        z-index: 2;
+        width: @key-width;
+        margin-left: @margin;
+        margin-right: @margin;
+
+        @media (max-height: calc(@key-height * 2)) {
+            height: calc(@small-key-height * @black-key-height-coef);
+        }
+    }
+
+    &-white {
+        color: #000;
+        background-color: #fff;
+        z-index: 1;
+        width: calc(@key-width * 1.1);
+    }
+}

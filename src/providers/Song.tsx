@@ -1,5 +1,5 @@
 import { createContext, useState, type PropsWithChildren } from 'react'
-import type Song from '../interfaces/JsonSong'
+import type Song from '../interfaces/Song'
 import SongValidator from '../utils/SongValidator'
 
 export const getDefaultSong = () => {

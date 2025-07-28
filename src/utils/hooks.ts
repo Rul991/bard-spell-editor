@@ -1,10 +1,10 @@
 import { useContext, useState } from 'react'
-import type Song from '../interfaces/JsonSong'
+import type Song from '../interfaces/Song'
 import { SongContext } from '../providers/Song'
 import type { SongKeys, SongValues } from './types'
 import { DEFAULT_TIMEOUT_TIME, MAX_SYMBOLS } from './consts'
 
-export const useToggle = (start = false) => {
+export const useToggle = (start: boolean) => {
     const [toggled, setToggle] = useState(start)
 
     return [

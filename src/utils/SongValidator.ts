@@ -1,4 +1,4 @@
-import type Song from '../interfaces/JsonSong'
+import type Song from '../interfaces/Song'
 import { MAX_OCTAVES, SEMITONES_IN_OCTAVE } from './consts'
 
 export default class SongValidator {
@@ -17,7 +17,7 @@ export default class SongValidator {
     }
 
     static isScriptRight(script: string): boolean {
-        return typeof script == 'string' && script.endsWith('.lua')
+        return typeof script == 'string'
     }
 
     static isDurationRight(duration: number): boolean {

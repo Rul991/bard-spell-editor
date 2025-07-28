@@ -1,4 +1,4 @@
-import { useEffect, useState, type ChangeEvent } from 'react'
+import { useEffect, useState, type ChangeEvent, type KeyboardEvent } from 'react'
 import styles from './Input.module.less'
 import { useSong } from '../../../utils/hooks'
 import type InputProps from '../../../props/InputProps'
@@ -29,6 +29,10 @@ const NumberInput = ({max, type, title, songKey = 'duration'}: InputProps) => {
         setSong(songKey, value)
     }
 
+    const onKeyUp = (e: KeyboardEvent) => {
+        if(e.code == 'Enter') onBlur()
+    }
+
     useEffect(() => {
         setValue(song[songKey] as any)
     }, [song])
@@ -40,6 +44,7 @@ const NumberInput = ({max, type, title, songKey = 'duration'}: InputProps) => {
             placeholder={songKey}
             onChange={type == 'number' ? onNumberChange : onStringChange} 
             onBlur={onBlur}
+            onKeyUp={onKeyUp}
             type={type}
             value={value} 
         />
