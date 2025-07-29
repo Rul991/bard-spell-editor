@@ -8,7 +8,6 @@ export default class Timeout {
         this._delay = delay
         this._callback = () => {
             callback()
-            console.log('end timeout')
         }
     }
 
@@ -16,7 +15,6 @@ export default class Timeout {
         if(this._lastId) clearTimeout(this._lastId)
 
         this._lastId = null
-        console.log('clear timeout')
     }
 
     set(): void {
@@ -24,8 +22,6 @@ export default class Timeout {
         if(typeof id == 'number') {
             this._lastId = id
         }
-        
-        console.log('set timeout')
     }
 
     reset(): void {

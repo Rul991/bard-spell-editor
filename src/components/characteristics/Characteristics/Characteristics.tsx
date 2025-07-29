@@ -13,6 +13,11 @@ const Characteristics = ({elements}: CharacteristicsProps) => {
         },
 
         {
+            title: 'ID',
+            value: song.id
+        },
+
+        {
             title: 'Длительность песни',
             value: song.duration
         },
@@ -20,11 +25,6 @@ const Characteristics = ({elements}: CharacteristicsProps) => {
         {
             title: 'Количество нот',
             value: song.notes.length
-        },
-        
-        {
-            title: 'Lua скрипт',
-            value: song.script
         }
     ]
 

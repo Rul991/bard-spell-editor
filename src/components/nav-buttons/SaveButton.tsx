@@ -1,6 +1,5 @@
 import FileUtils from '../../utils/FileUtils'
 import { useSong, useTimeout } from '../../utils/hooks'
-import StringUtils from '../../utils/StringUtils'
 import ClickButton from '../buttons/ClickButton'
 
 const SaveButton = () => {
@@ -9,9 +8,7 @@ const SaveButton = () => {
 
     const onSave = () => {
         FileUtils.save(
-            `${StringUtils.russianToEnglishTranslit(
-                song.name.toLowerCase().replaceAll(" ", "_"))
-            }.json`,
+            `${song.id}.json`,
             JSON.stringify(song)
         )
         setText('Сохранено!')

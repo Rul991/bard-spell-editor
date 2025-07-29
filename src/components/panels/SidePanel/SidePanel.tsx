@@ -41,7 +41,7 @@ const SidePanel = () => {
         <h2>Редактор</h2>
         <div className="inputs">
             <Input songKey='name' title='Название' type='string' />
-            <Input songKey='script' title='Путь к скрипту' type='string' />
+            <Input songKey='id' title='ID' type='string' />
             <Input songKey='duration' title='Длина песни' type='number' />
         </div>
     </div>

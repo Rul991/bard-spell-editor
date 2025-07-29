@@ -1,8 +1,8 @@
 import type Song from '../../interfaces/Song'
 import FileUtils from '../../utils/FileUtils'
-import SongValidator from '../../utils/SongValidator'
 import ClickButton from '../buttons/ClickButton'
 import { useSong, useTimeout } from '../../utils/hooks'
+import SongUtils from '../../utils/SongUtils'
 
 const LoadButton = () => {
     const defaultLoadText = 'Загрузить'
@@ -15,13 +15,9 @@ const LoadButton = () => {
         .then(text => {
             try {
                 const parsed: Song = JSON.parse(text)
-                if(SongValidator.isSong(parsed)) {
-                    setSong(parsed)
-                    setLoadText('Загружено!')
-                }
-                else {
-                    throw new Error('Wrong json file')
-                }
+                
+                setSong(SongUtils.makeRight(parsed))
+                setLoadText('Загружено!')
             }
             catch(e) {
                 throw e

@@ -18,7 +18,6 @@ export default class FileUtils {
             }, FILE_WAIT_TIME)
 
             input.addEventListener('change', (event: any) => {
-                console.log(event)
                 clearTimeout(timeout)
                 const files: FileList | null = event.target.files
                 

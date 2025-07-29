@@ -4,6 +4,7 @@ import SongValidator from '../utils/SongValidator'
 
 export const getDefaultSong = () => {
     return {
+        id: 'spell',
         duration: 0,
         notes: [],
         name: 'New Song',

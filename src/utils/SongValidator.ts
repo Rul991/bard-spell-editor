@@ -16,10 +16,6 @@ export default class SongValidator {
             notes.every(note => this.isNoteRight(note))
     }
 
-    static isScriptRight(script: string): boolean {
-        return typeof script == 'string'
-    }
-
     static isDurationRight(duration: number): boolean {
         return typeof duration == 'number' && duration >= 0
     }
@@ -28,10 +24,14 @@ export default class SongValidator {
         return typeof name == 'string'
     }
 
+    static isIdRight(id: string) {
+        return typeof id == 'string'
+    }
+
     static isSong(parsed: Song): boolean {
         return this.isNameRight(parsed.name) &&
                 this.isDurationRight(parsed.duration) &&
                 this.isNotesRight(parsed.notes) &&
-                this.isScriptRight(parsed.script)
+                this.isIdRight(parsed.id)
     }
 }

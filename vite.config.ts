@@ -4,6 +4,9 @@ import { resolve } from 'path'
 
 // https://vite.dev/config/
 export default defineConfig({
+  build: {
+    outDir: './dist/bard'
+  },
   plugins: [react()],
   server: {
     host: '0.0.0.0'

@@ -1,3 +1,5 @@
+import type Song from '../interfaces/Song'
+import { getDefaultSong } from '../providers/Song'
 import { MAX_OCTAVES, SEMITONES_IN_OCTAVE } from './consts'
 import SongValidator from './SongValidator'
 import type { MusicKeys } from './types'
@@ -60,5 +62,36 @@ export default class SongUtils {
 
     static getNumberNote(note: number, octave: number, key: MusicKeys): number {
         return (note % SEMITONES_IN_OCTAVE) + (octave * SEMITONES_IN_OCTAVE) + key
+    }
+
+    static makeRight(parsed: Song): Song {
+        const newSong: Song = getDefaultSong()
+
+        console.group('validation errors:')
+        console.log('start parsing', parsed)
+
+        if(SongValidator.isNotesRight(parsed.notes)) {
+            newSong.notes = parsed.notes
+        }
+        else console.warn('wrong notes', parsed.notes)
+
+        if(SongValidator.isDurationRight(parsed.duration)) {
+            newSong.duration = parsed.duration
+        }
+        else console.warn('wrong duration', parsed.duration)
+
+        if(SongValidator.isNameRight(parsed.name)) {
+            newSong.name = parsed.name
+        }
+        else console.warn('wrong name', parsed.name)
+
+        if(SongValidator.isIdRight(parsed.id)) {
+            newSong.id = parsed.id
+        }
+        else console.warn('wrong id', parsed.id)
+
+        console.groupEnd()
+
+        return newSong
     }
 }
